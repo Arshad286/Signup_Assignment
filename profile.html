@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profiles</title>
+    <link rel="stylesheet" href="profileStyle.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Your Profile</h1>
+        <div id="profiles" class="profiles">
+           
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+       
+        const userData = JSON.parse(localStorage.getItem('userData'));
+        const profilesContainer = document.getElementById('profiles');
+
+        if (userData) {
+            
+            const profileCard = document.createElement('div');
+            profileCard.classList.add('profile-card');
+            profileCard.innerHTML = `
+                <div class="profile-info">
+                    <h2>${userData.name}</h2>
+                    <p>Mobile: ${userData.mobile}</p>
+                    <p>DOB: ${userData.dob}</p>
+                    <p>Email: ${userData.email}</p>
+                </div>
+                <div class="profile-image">
+                    <!-- Placeholder image -->
+                    <img src="https://avatar.iran.liara.run/public/boy?username=Ash" alt="Profile Image">
+                </div>
+            `;
+            profilesContainer.appendChild(profileCard);
+
+          
+        
+        }
+    </script>
+
+    
+</body>
+</html>
